@@ -1,3 +1,4 @@
+#include <dt-bindings/clock/bcm21654.h>
 #include "bcm2166x-common.dtsi"
 
 / {
@@ -65,4 +66,82 @@
 /* BCM21654 only has 3 SDIO controllers, no SDIO4 */
 &sdio4 {
 	status = "disabled";
+};
+
+/* Override CCU nodes to use BCM21654-specific compatible strings and clocks */
+&root_ccu {
+	compatible = "brcm,bcm21654-root-ccu";
+};
+
+&aon_ccu {
+	compatible = "brcm,bcm21654-aon-ccu";
+};
+
+&master_ccu {
+	compatible = "brcm,bcm21654-master-ccu";
+	clock-output-names = "sdio1",
+			     "sdio2",
+			     "sdio3",
+			     "sdio1_sleep",
+			     "sdio2_sleep",
+			     "sdio3_sleep",
+			     "sdio1_ahb",
+			     "sdio2_ahb",
+			     "sdio3_ahb",
+			     "usb_otg_ahb";
+};
+
+&slave_ccu {
+	compatible = "brcm,bcm21654-slave-ccu";
+	clock-output-names = "uartb",
+			     "uartb2",
+			     "uartb3",
+			     "bsc1",
+			     "bsc2",
+			     "uartb_apb",
+			     "uartb2_apb",
+			     "uartb3_apb",
+			     "bsc1_apb",
+			     "bsc2_apb";
+};
+
+/* Update clock references to use BCM21654 clock IDs */
+&sdio1 {
+	clocks = <&master_ccu BCM21654_MASTER_CCU_SDIO1>;
+};
+
+&sdio2 {
+	clocks = <&master_ccu BCM21654_MASTER_CCU_SDIO2>;
+};
+
+&sdio3 {
+	clocks = <&master_ccu BCM21654_MASTER_CCU_SDIO3>;
+};
+
+&usbotg {
+	clocks = <&master_ccu BCM21654_MASTER_CCU_USB_OTG_AHB>;
+};
+
+&uartb {
+	clocks = <&slave_ccu BCM21654_SLAVE_CCU_UARTB>;
+};
+
+&uartb2 {
+	clocks = <&slave_ccu BCM21654_SLAVE_CCU_UARTB2>;
+};
+
+&uartb3 {
+	clocks = <&slave_ccu BCM21654_SLAVE_CCU_UARTB3>;
+};
+
+&bsc1 {
+	clocks = <&slave_ccu BCM21654_SLAVE_CCU_BSC1>;
+};
+
+&bsc2 {
+	clocks = <&slave_ccu BCM21654_SLAVE_CCU_BSC2>;
+};
+
+&pmu_bsc {
+	clocks = <&aon_ccu BCM21654_AON_CCU_PMU_BSC>;
 };
