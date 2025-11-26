@@ -76,7 +76,85 @@
 		interrupts = <29 IRQ_TYPE_LEVEL_LOW>;
 
 		regulators {
-			/* Add regulator configuration here as needed */
+			buck1 {
+				regulator-name = "vdd_core";
+				regulator-min-microvolt = <500000>;
+				regulator-max-microvolt = <2075000>;
+				regulator-always-on;
+				regulator-boot-on;
+			};
+
+			buck2 {
+				regulator-name = "vdd_io";
+				regulator-min-microvolt = <500000>;
+				regulator-max-microvolt = <2075000>;
+				regulator-always-on;
+				regulator-boot-on;
+			};
+
+			buck3 {
+				regulator-name = "vdd_sdio";
+				regulator-min-microvolt = <925000>;
+				regulator-max-microvolt = <2500000>;
+				regulator-always-on;
+				regulator-boot-on;
+			};
+
+			buck4 {
+				regulator-name = "vdd_ana";
+				regulator-min-microvolt = <1200000>;
+				regulator-max-microvolt = <3300000>;
+				regulator-always-on;
+				regulator-boot-on;
+			};
+
+			ldo2 {
+				regulator-name = "ldo2";
+				regulator-min-microvolt = <1200000>;
+				regulator-max-microvolt = <3330000>;
+				regulator-always-on;
+			};
+
+			ldo3 {
+				regulator-name = "vdd_sensor";
+				regulator-min-microvolt = <3000000>;
+				regulator-max-microvolt = <3000000>;
+				regulator-always-on;
+			};
+
+			ldo4 {
+				regulator-name = "vdd_aud";
+				regulator-min-microvolt = <2900000>;
+				regulator-max-microvolt = <2900000>;
+				regulator-always-on;
+			};
+
+			ldo5 {
+				regulator-name = "ldo5";
+				regulator-min-microvolt = <1200000>;
+				regulator-max-microvolt = <3330000>;
+				regulator-always-on;
+			};
+
+			ldo8 {
+				regulator-name = "vlcd";
+				regulator-min-microvolt = <3000000>;
+				regulator-max-microvolt = <3000000>;
+				regulator-always-on;
+			};
+
+			ldo12 {
+				regulator-name = "ldo12";
+				regulator-min-microvolt = <1200000>;
+				regulator-max-microvolt = <3330000>;
+				regulator-always-on;
+			};
+
+			ldo13 {
+				regulator-name = "vdd_sdio_flash";
+				regulator-min-microvolt = <3000000>;
+				regulator-max-microvolt = <3000000>;
+			};
 		};
 	};
 };
