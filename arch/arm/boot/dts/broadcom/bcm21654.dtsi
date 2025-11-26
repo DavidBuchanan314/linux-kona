@@ -1,0 +1,68 @@
+#include "bcm2166x-common.dtsi"
+
+/ {
+	interrupt-parent = <&gic>;
+
+	cpus {
+		#address-cells = <1>;
+		#size-cells = <0>;
+
+		cpu0: cpu@0 {
+			device_type = "cpu";
+			compatible = "arm,cortex-a9";
+			reg = <0>;
+		};
+	};
+};
+
+&apps {
+	gic: interrupt-controller@1c01000 {
+		compatible = "arm,cortex-a9-gic";
+		#interrupt-cells = <3>;
+		#address-cells = <0>;
+		interrupt-controller;
+		reg = <0x01c01000 0x1000>,
+		      <0x01c00100 0x100>;
+	};
+
+	L2: cache-controller@1c20000 {
+		compatible = "arm,pl310-cache";
+		reg = <0x01c20000 0x1000>;
+		cache-unified;
+		cache-level = <2>;
+	};
+};
+
+&bsc1 {
+	compatible = "brcm,bcm21654-i2c", "brcm,kona-i2c";
+};
+
+&bsc2 {
+	compatible = "brcm,bcm21654-i2c", "brcm,kona-i2c";
+};
+
+/* BCM21654 only has BSC1 and BSC2, no BSC3/BSC4 */
+&bsc3 {
+	status = "disabled";
+};
+
+&bsc4 {
+	status = "disabled";
+};
+
+&gpio {
+	compatible = "brcm,bcm21654-gpio", "brcm,kona-gpio";
+};
+
+&pmu_bsc {
+	compatible = "brcm,bcm21654-i2c", "brcm,kona-i2c";
+};
+
+&smc {
+	compatible = "brcm,bcm21654-smc", "brcm,kona-smc";
+};
+
+/* BCM21654 only has 3 SDIO controllers, no SDIO4 */
+&sdio4 {
+	status = "disabled";
+};

@@ -1,0 +1,99 @@
+/*
+ * Device tree for Samsung Galaxy Fame (nevisp).
+ */
+
+/dts-v1/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/input/input.h>
+
+#include "bcm21654.dtsi"
+
+/ {
+	model = "Samsung Galaxy Fame (GT-S6810P)";
+	compatible = "samsung,nevisp", "brcm,bcm21654";
+	chassis-type = "handset";
+
+	chosen {
+		stdout-path = &uartb2;
+		bootargs = "console=ttyS1,115200n8";
+	};
+
+	memory@80000000 {
+		device_type = "memory";
+		reg = <0x80000000 0x1e000000>; /* 480 MB */
+	};
+
+	reserved-memory {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
+
+		pmem: pmem@9ef00000 {
+			reg = <0x9ef00000 0x1100000>; /* 17 MB carveout */
+			no-map;
+		};
+	};
+
+	framebuffer@9c800000 {
+		compatible = "simple-framebuffer";
+		reg = <0x9c800000 (320 * 480 * 4)>;
+		width = <320>;
+		height = <480>;
+		stride = <(320 * 4)>;
+		format = "a8r8g8b8";
+		status = "okay";
+	};
+};
+
+&uartb {
+	status = "okay";
+};
+
+&uartb2 {
+	status = "okay";
+};
+
+&uartb3 {
+	status = "okay";
+};
+
+&bsc1 {
+	status = "okay";
+};
+
+&bsc2 {
+	status = "okay";
+};
+
+&pmu_bsc {
+	status = "okay";
+
+	pmu: pmu@49 {
+		compatible = "dlg,da2083";
+		reg = <0x49>;
+		interrupt-parent = <&gpio>;
+		interrupts = <29 IRQ_TYPE_LEVEL_LOW>;
+	};
+};
+
+/* eMMC */
+&sdio1 {
+	max-frequency = <52000000>;
+	non-removable;
+	bus-width = <8>;
+	status = "okay";
+};
+
+/* SD card */
+&sdio2 {
+	max-frequency = <48000000>;
+	status = "okay";
+};
+
+/* WiFi */
+&sdio3 {
+	max-frequency = <48000000>;
+	non-removable;
+	status = "okay";
+};
