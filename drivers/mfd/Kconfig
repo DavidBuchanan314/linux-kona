@@ -449,6 +449,17 @@ config MFD_DA9150
 	  Additional drivers must be enabled in order to use the specific
 	  features of the device.
 
+config MFD_DA2083
+	bool "Dialog Semiconductor DA2083 PMIC"
+	select MFD_CORE
+	select REGMAP_I2C
+	depends on I2C=y
+	help
+	  This adds core support for the Dialog DA2083 Power Management IC.
+	  This driver provides common support for accessing the device.
+	  Additional drivers must be enabled in order to use the functionality
+	  of the device such as regulators, RTC, and onkey.
+
 config MFD_DLN2
 	tristate "Diolan DLN2 support"
 	select MFD_CORE

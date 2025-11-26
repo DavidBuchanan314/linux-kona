@@ -1,0 +1,162 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
+/*
+ * Register definitions for Dialog DA2083 PMIC
+ *
+ * Copyright (C) 2012 Dialog Semiconductor Ltd.
+ * Copyright (C) 2025 (Mainline port)
+ */
+
+#ifndef __LINUX_MFD_DA2083_REGISTERS_H
+#define __LINUX_MFD_DA2083_REGISTERS_H
+
+/* Page 0 Registers */
+
+/* Status / Config */
+#define DA2083_PAGECON0_REG		0x00
+#define DA2083_STATUSA_REG		0x01
+#define DA2083_STATUSB_REG		0x02
+#define DA2083_STATUSC_REG		0x03
+#define DA2083_STATUSD_REG		0x04
+#define DA2083_EVENTA_REG		0x05
+#define DA2083_EVENTB_REG		0x06
+#define DA2083_EVENTC_REG		0x07
+#define DA2083_EVENTD_REG		0x08
+#define DA2083_FAULTLOG_REG		0x09
+#define DA2083_IRQMASKA_REG		0x0A
+#define DA2083_IRQMASKB_REG		0x0B
+#define DA2083_IRQMASKC_REG		0x0C
+#define DA2083_IRQMASKD_REG		0x0D
+#define DA2083_CONTROLA_REG		0x0E
+#define DA2083_CONTROLB_REG		0x0F
+#define DA2083_CONTROLC_REG		0x10
+#define DA2083_CONTROLD_REG		0x11
+#define DA2083_PDDIS_REG		0x12
+#define DA2083_INTERFACE_REG		0x13
+#define DA2083_RESET_REG		0x14
+
+/* GPIO */
+#define DA2083_GPIO_TA_REG		0x16
+#define DA2083_GPIO_NJIGON_REG		0x17
+#define DA2083_GPIO_REG			0x1B
+
+/* Sequencer */
+#define DA2083_ID01_REG			0x1D
+#define DA2083_ID23_REG			0x1E
+#define DA2083_ID45_REG			0x1F
+#define DA2083_ID67_REG			0x20
+#define DA2083_ID89_REG			0x21
+#define DA2083_ID1011_REG		0x22
+#define DA2083_ID1213_REG		0x23
+#define DA2083_ID1415_REG		0x24
+#define DA2083_ID1617_REG		0x25
+#define DA2083_SEQSTATUS_REG		0x28
+#define DA2083_SEQA_REG			0x29
+#define DA2083_SEQB_REG			0x2A
+#define DA2083_SEQTIMER_REG		0x2B
+
+/* Buck Regulators */
+#define DA2083_BUCKA_REG		0x2C
+#define DA2083_BUCKB_REG		0x2D
+#define DA2083_BUCK1_REG		0x2E
+#define DA2083_BUCK2_REG		0x2F
+#define DA2083_BUCK3_REG		0x30
+#define DA2083_BUCK4_REG		0x31
+
+/* LDO Regulators */
+#define DA2083_LDO1_REG			0x32
+#define DA2083_LDO2_REG			0x33
+#define DA2083_LDO3_REG			0x34
+#define DA2083_LDO4_REG			0x35
+#define DA2083_LDO5_REG			0x36
+#define DA2083_LDO6_REG			0x37
+#define DA2083_LDO7_REG			0x38
+#define DA2083_LDO8_REG			0x39
+#define DA2083_LDO9_REG			0x3A
+#define DA2083_LDO10_REG		0x3B
+#define DA2083_LDO11_REG		0x3C
+#define DA2083_LDO12_REG		0x3D
+
+/* Pulldown registers */
+#define DA2083_PULLDOWN_REG_A		0x3E
+#define DA2083_PULLDOWN_REG_B		0x3F
+#define DA2083_PULLDOWN_REG_C		0x40
+#define DA2083_PULLDOWN_REG_D		0x41
+
+/* Additional LDOs */
+#define DA2083_LDO13_REG		0x42
+#define DA2083_LDO14_REG		0x43
+#define DA2083_LDO15_REG		0x44
+#define DA2083_LDO16_REG		0x45
+#define DA2083_LDO17_REG		0x46
+#define DA2083_LDO_AUD_REG		0x47
+
+#define DA2083_SUPPLY_REG		0x48
+
+/* MCTL (Mode Control) Registers */
+#define DA2083_LDO1_MCTL_REG		0x49
+#define DA2083_LDO2_MCTL_REG		0x4A
+#define DA2083_LDO3_MCTL_REG		0x4B
+#define DA2083_LDO4_MCTL_REG		0x4C
+#define DA2083_LDO5_MCTL_REG		0x4D
+#define DA2083_LDO6_MCTL_REG		0x4E
+#define DA2083_LDO7_MCTL_REG		0x4F
+#define DA2083_LDO8_MCTL_REG		0x50
+#define DA2083_LDO9_MCTL_REG		0x51
+#define DA2083_LDO10_MCTL_REG		0x52
+#define DA2083_LDO11_MCTL_REG		0x53
+#define DA2083_LDO12_MCTL_REG		0x54
+#define DA2083_LDO13_MCTL_REG		0x55
+#define DA2083_LDO14_MCTL_REG		0x56
+#define DA2083_LDO15_MCTL_REG		0x57
+#define DA2083_LDO16_MCTL_REG		0x58
+#define DA2083_LDO17_MCTL_REG		0x59
+#define DA2083_LDO_AUD_MCTL_REG		0x5A
+
+#define DA2083_BUCK1_MCTL_REG		0x5B
+#define DA2083_BUCK2_MCTL_REG		0x5C
+#define DA2083_BUCK3_MCTL_REG		0x5D
+#define DA2083_BUCK4_MCTL_REG		0x5E
+
+/* Control Registers */
+#define DA2083_WAITCONT_REG		0x63
+#define DA2083_ONKEYCONT1_REG		0x64
+#define DA2083_ONKEYCONT2_REG		0x65
+#define DA2083_POWERCONT_REG		0x66
+
+/* RTC Registers */
+#define DA2083_COUNTS_REG		0x82
+#define DA2083_COUNTMI_REG		0x83
+#define DA2083_COUNTH_REG		0x84
+#define DA2083_COUNTD_REG		0x85
+#define DA2083_COUNTMO_REG		0x86
+#define DA2083_COUNTY_REG		0x87
+#define DA2083_ALARMS_REG		0x88
+#define DA2083_ALARMMI_REG		0x89
+#define DA2083_ALARMH_REG		0x8A
+#define DA2083_ALARMD_REG		0x8B
+#define DA2083_ALARMMO_REG		0x8C
+#define DA2083_ALARMY_REG		0x8D
+
+/* Chip ID */
+#define DA2083_CHIPID_REG		0x8F
+#define DA2083_CONFIGID_REG		0x90
+
+/* Register bit definitions */
+
+/* BUCK/LDO enable bit */
+#define DA2083_REGULATOR_EN		BIT(6)
+
+/* BUCK/LDO voltage mask (lower 6 bits) */
+#define DA2083_VBUCK_MASK		0x3F
+#define DA2083_VLDO_MASK		0x3F
+
+/* Event/IRQ masks */
+#define DA2083_E_NONKEY_MASK		0x0F
+
+/* I2C Device Address */
+#define DA2083_I2C_ADDR			0x48
+
+/* Max register for page 0 */
+#define DA2083_MAX_REGISTER		0x90
+
+#endif /* __LINUX_MFD_DA2083_REGISTERS_H */

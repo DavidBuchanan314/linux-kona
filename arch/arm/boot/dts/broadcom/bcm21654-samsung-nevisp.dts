@@ -74,6 +74,10 @@
 		reg = <0x49>;
 		interrupt-parent = <&gpio>;
 		interrupts = <29 IRQ_TYPE_LEVEL_LOW>;
+
+		regulators {
+			/* Add regulator configuration here as needed */
+		};
 	};
 };
 
