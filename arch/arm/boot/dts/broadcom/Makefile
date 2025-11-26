@@ -110,6 +110,7 @@ dtb-$(CONFIG_ARCH_BCM_HR2) += \
 	bcm53340-ubnt-unifi-switch8.dtb
 dtb-$(CONFIG_ARCH_BCM_MOBILE) += \
 	bcm28155-ap.dtb \
+	bcm21654-samsung-nevisp.dtb \
 	bcm21664-garnet.dtb \
 	bcm21664-samsung-kylepro.dtb \
 	bcm21664-samsung-kyleprods.dtb \
