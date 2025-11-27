@@ -294,4 +294,43 @@
 			bias-pull-up;
 		};
 	};
+
+	/* UARTB (ttyS0) */
+	uartb_pins: uartb-pins {
+		ubtx-grp0 {
+			pins = "ubtx";
+			function = "alt1"; /* UBTX */
+		};
+
+		ubrx-grp0 {
+			pins = "ubrx";
+			function = "alt1"; /* UBRX */
+		};
+	};
+
+	/* UARTB2 (ttyS1) - Console UART for nevis/nevisp */
+	uartb2_pins: uartb2-pins {
+		ub2tx-grp0 {
+			pins = "gpio18";
+			function = "alt3"; /* UB2TX */
+		};
+
+		ub2rx-grp0 {
+			pins = "sspdi";
+			function = "alt6"; /* RXD/UB2RX */
+		};
+	};
+
+	/* UARTB3 (ttyS2) */
+	uartb3_pins: uartb3-pins {
+		ub3tx-grp0 {
+			pins = "gpio20";
+			function = "alt3"; /* UB3TX */
+		};
+
+		ub3rx-grp0 {
+			pins = "gpio21";
+			function = "alt3"; /* UB3RX */
+		};
+	};
 };
