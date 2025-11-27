@@ -80,4 +80,9 @@ struct da2083 {
 	u8 chip_id;
 };
 
+/* Core functions */
+extern const struct regmap_config da2083_regmap_config;
+int da2083_device_init(struct da2083 *da2083);
+void da2083_device_exit(struct da2083 *da2083);
+
 #endif /* __LINUX_MFD_DA2083_CORE_H */
