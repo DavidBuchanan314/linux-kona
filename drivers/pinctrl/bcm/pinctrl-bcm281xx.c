@@ -2149,6 +2149,7 @@ static int __init bcm281xx_pinctrl_probe(struct platform_device *pdev)
 
 static const struct of_device_id bcm281xx_pinctrl_of_match[] = {
 	{ .compatible = "brcm,bcm11351-pinctrl", .data = &bcm281xx_pinctrl },
+	{ .compatible = "brcm,bcm21654-pinctrl", .data = &bcm21664_pinctrl },
 	{ .compatible = "brcm,bcm21664-pinctrl", .data = &bcm21664_pinctrl },
 	{ },
 };
