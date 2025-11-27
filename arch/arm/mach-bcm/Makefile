@@ -19,16 +19,19 @@ endif
 # BCM281XX
 obj-$(CONFIG_ARCH_BCM_281XX)	+= board_bcm281xx.o
 
+# BCM21654
+obj-$(CONFIG_ARCH_BCM_21654)	+= board_bcm21654.o
+
 # BCM21664
 obj-$(CONFIG_ARCH_BCM_21664)	+= board_bcm21664.o
 
 # BCM23550
 obj-$(CONFIG_ARCH_BCM_23550)	+= board_bcm23550.o
 
-# BCM281XX, BCM21664 and BCM23550 SMP support
+# BCM281XX, BCM21654, BCM21664 and BCM23550 SMP support
 obj-$(CONFIG_ARCH_BCM_MOBILE_SMP) += platsmp.o
 
-# BCM281XX and BCM21664 L2 cache control
+# BCM281XX, BCM21654 and BCM21664 L2 cache control
 obj-$(CONFIG_ARCH_BCM_MOBILE_L2_CACHE) += kona_l2_cache.o
 
 # Support for secure monitor traps

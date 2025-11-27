@@ -109,6 +109,13 @@ config ARCH_BCM_281XX
 	  BCM11130, BCM11140, BCM11351, BCM28145 and BCM28155
 	  variants.
 
+config ARCH_BCM_21654
+	bool "Broadcom BCM21654 SoC"
+	depends on ARCH_MULTI_V7
+	select ARCH_BCM_MOBILE
+	help
+	  Enable support for the BCM21654 SoC.
+
 config ARCH_BCM_21664
 	bool "Broadcom BCM21664 SoC family"
 	depends on ARCH_MULTI_V7
@@ -126,7 +133,7 @@ config ARCH_BCM_23550
 
 config ARCH_BCM_MOBILE_L2_CACHE
 	bool "Broadcom mobile SoC level 2 cache support"
-	depends on ARCH_BCM_281XX || ARCH_BCM_21664
+	depends on ARCH_BCM_281XX || ARCH_BCM_21654 || ARCH_BCM_21664
 	default y
 	select CACHE_L2X0
 	select ARCH_BCM_MOBILE_SMC
